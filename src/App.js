@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from "./components/Layout"
+import Home from "./screens/Home"
+import UseCounterCounter from "./screens/UseCounterScreen"
+import UseReducerCounter from "./screens/UseReducerCounter"
+import ErrorBoundaryCounter from "./screens/ErrorBoundaryCounter"
+import NotFound from './screens/NotFound'
+import { ErrorBoundary } from './components/ErrorBoundary'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path='counter1' element={<UseCounterCounter />} />
+            <Route path='counter2' element={<UseReducerCounter />} />
+            <Route path='errorBoundary' element={<ErrorBoundary><ErrorBoundaryCounter /></ErrorBoundary>} />
+            <Route path='*' element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
