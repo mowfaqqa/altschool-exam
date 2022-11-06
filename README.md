@@ -4,6 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Deployed Link
 https://altschool-exam-delta.vercel.app/
 
+# About Project
+It is a simple counter implemented with react using a custom hook to implement the counter functionalities and also a useReducer hook method to attain the counter functionality.
+
 ## Available Scripts
 
 In the project directory, you can run:
